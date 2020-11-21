@@ -24,6 +24,19 @@ let doc_fragment = document.createDocumentFragment();
 let active_section = document.querySelectorAll('.your-active-class')[0];
 let active_link = null;
 
+/**
+ * End Global Variables
+ * Start Helper Functions
+ *
+*/
+
+
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ *
+*/
+// build the nav
 for (section of sections) {
     update_sections(section)
 }
@@ -41,6 +54,7 @@ function update_sections(section) {
 
     link.addEventListener("click", function (event) {
         // event.preventDefault();
+// Scroll to section on link click
         section.scrollIntoView({ 'behavior': 'smooth' });
     });
 
@@ -48,10 +62,12 @@ function update_sections(section) {
     navbar__list.appendChild(item);
 
 }
+
 function update_style() {
 
     for (section of sections) {
         let border = section.getBoundingClientRect();
+// Add class 'active' to section when near top of viewport
         if (border.top >= 0 && border.bottom < window.innerHeight) {
             if (active_link != null) {
                 active_link.classList.remove('your-active-class');
@@ -66,41 +82,15 @@ function update_style() {
         }
     }
 }
-
-window.addEventListener('scroll', update_style);
-
-/**
- * End Global Variables
- * Start Helper Functions
- *
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- *
-*/
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
 /**
  * End Main Functions
  * Begin Events
  *
 */
-
+window.addEventListener('scroll', update_style);
 // Build menu 
+// Scroll to anchor ID using scrollTO event
 
-// Scroll to section on link click
 
 // Set sections as active
 
