@@ -54,7 +54,7 @@ function update_sections(section) {
 
     link.addEventListener("click", function (event) {
         // event.preventDefault();
-// Scroll to section on link click
+        // Scroll to section on link click
         section.scrollIntoView({ 'behavior': 'smooth' });
     });
 
@@ -67,9 +67,9 @@ function update_style() {
 
     for (section of sections) {
         let border = section.getBoundingClientRect();
-// Add class 'active' to section when near top of viewport
-        if (border.top >= 0 && border.bottom < window.innerHeight) {
-            if (active_link != null) {
+        // Add class 'active' to section when near top of viewport
+        if (border.top < window.innerHeight-200) {
+            if (active_link) {
                 active_link.classList.remove('your-active-class');
             }
             active_section.classList.remove('your-active-class');
@@ -88,7 +88,7 @@ function update_style() {
  *
 */
 window.addEventListener('scroll', update_style);
-// Build menu 
+// Build menu
 // Scroll to anchor ID using scrollTO event
 
 
